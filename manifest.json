@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+
+	"name": "HBT-Gotcha",
+	"description": "This extension shows a contact information including phone, email for the current page. Author: Charles He",
+	"version": "1.0",
+
+	"author": "Charles He",
+	"icons": { "128": "hbt.png" },
+	"browser_action": {
+		"default_icon": "hbt2.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"tabs", "http://*/*", "https://*/*" , "bookmarks", "<all_urls>"
+	],
+	"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}

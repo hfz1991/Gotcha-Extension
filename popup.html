@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        overflow-y: scroll;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 300px;
+      }
+
+      .addToLinkedIn{
+        height: 50px;
+        background-color: lightseagreen;
+        color: white;
+        width: 100%;
+        font-size: 20px;
+      }
+
+      .logo{
+        float: left;
+        margin: 13px;
+      }
+
+      .logo img{
+        height: 55px;
+      }
+
+      .inline-block{
+        display: inline-block;
+      }
+
+      .gotcha{
+        font-family: 'Russo One', sans-serif;
+        margin-bottom: 20px;
+        float: right;
+        margin-top: 45px;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body style="width: 300px">
+    
+    <div class="logo inline-block"><img src="http://hbtagency.com.au/wp-content/uploads/2015/10/preloader.png" /></div>
+    <div class="gotcha inline-block">GOTCHA.</div>
+    <div style="float:left; width:100%;"><hr /></div>
+    <div id="linkedin_status">test</div>
+    <!-- <hr> -->
+    <!-- <div id='message'>Scanning contact info...</div>
+    <br>
+    <div id="email"></div> -->
+
+    <form id="addContact" action="http://hbtagency.com.au/gotcha/api/db.php" method="POST" style="display:none">
+      <input type="hidden" name="firstname" id="form_firstname" placeholder="firstname"><br>
+      <input type="hidden" name="lastname" id="form_lastname" placeholder="lastname"><br>
+      <input type="hidden" name="position" id="form_position" placeholder="position"><br>
+      <input type="hidden" name="company" id="form_company" placeholder="company"><br>
+      <input type="hidden" name="phone" id="form_phone" placeholder="phone"><br>
+      <input type="hidden" name="email" id="form_email" placeholder="email"><br>
+      <input type="hidden" name="imgURL" id="form_img" placeholder="img"><br>
+      <!-- <textarea rows="4" cols="40" name="activity" class="form-control" form="addContact" placeholder="Activity"></textarea> -->
+
+      <!-- <input type="submit" value="Submit" name="submit"> -->
+    </form>
+    <!-- <div id="contacts"></div> -->
+  </body>
+</html>
+
