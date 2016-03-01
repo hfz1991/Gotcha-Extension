@@ -8,12 +8,21 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
     <style>
+      /*html {min-height: 600px}*/
+
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-        overflow-y: scroll;
+        overflow-x:hidden;
+        overflow-y:auto;
+        margin: 0px;   
+        min-height: 599px;
       }
+
+      hr { margin: 0px; }
+
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
@@ -23,16 +32,22 @@
       }
 
       .addToLinkedIn{
-        height: 50px;
-        background-color: lightseagreen;
+        height: 32px;
+        background-color: #2cafe0;
         color: white;
-        width: 100%;
+        width: 43%;
         font-size: 20px;
+        margin-top: 8px;
+        position: relative;
+        left: 65px;
       }
 
       .logo{
-        float: left;
         margin: 13px;
+        margin-top: 23px;
+        margin-left: 25px;
+        position: relative;
+        top: 20px;
       }
 
       .logo img{
@@ -45,9 +60,60 @@
 
       .gotcha{
         font-family: 'Russo One', sans-serif;
-        margin-bottom: 20px;
+        margin-left: 195px;
+        position: relative;
+        bottom: 20px;
+        /* margin-bottom: 20px; */
+      }
+
+      .result_cell {
+        padding-left: 25px;
+        padding-right: 15px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      .name_div {
+        padding-left: 6px;
+        font-size: 22px;
+        position: relative;
+        bottom: 4px;
+        letter-spacing: -1px;
+        font-family: 'Raleway', sans-serif;      
+      }
+
+      .position {
+        font-family: 'Raleway', sans-serif;
+        font-size: 13px;
+      }
+
+      .company {
+        font-family: 'Raleway', sans-serif;
+        font-size: 15px;
+      }
+
+      .user_name{
+        position: relative;
+        bottom: 55px;
+        font-family: 'Raleway', sans-serif;
         float: right;
-        margin-top: 45px;
+        margin-right: 44px;
+      }
+
+      #greeting {
+        position: relative;
+        bottom: 44px;
+        font-family: 'Raleway', sans-serif;
+        left: 27px;
+      }
+
+      .logout {
+        height: 24px;
+        background-color: #2cafe0;
+        color: white;
+        position: absolute;
+        right: 45px;
+        top: 60px;
       }
     </style>
     <script src="popup.js"></script>
@@ -55,9 +121,12 @@
   <body style="width: 300px">
     
     <div class="logo inline-block"><img src="http://hbtagency.com.au/wp-content/uploads/2015/10/preloader.png" /></div>
+    <div id="greeting" class="greeting inline-block">Good Morning!</div>
+    <div id="name_of_user" class="user_name inline-block"></div>
+    <button class="logout inline-block">Logout</button>
     <div class="gotcha inline-block">GOTCHA.</div>
-    <div style="float:left; width:100%;"><hr /></div>
-    <div id="linkedin_status">test</div>
+    <div style="width:100%;"><hr /></div>
+    <div id="linkedin_status"></div>
     <!-- <hr> -->
     <!-- <div id='message'>Scanning contact info...</div>
     <br>
@@ -71,6 +140,7 @@
       <input type="hidden" name="phone" id="form_phone" placeholder="phone"><br>
       <input type="hidden" name="email" id="form_email" placeholder="email"><br>
       <input type="hidden" name="imgURL" id="form_img" placeholder="img"><br>
+      <input type="hidden" name="username" id="form_name_of_user">
       <!-- <textarea rows="4" cols="40" name="activity" class="form-control" form="addContact" placeholder="Activity"></textarea> -->
 
       <!-- <input type="submit" value="Submit" name="submit"> -->

@@ -9,7 +9,8 @@
 		$activity = $_POST['activity'];
 		$status = "open";
 		$imgURL = $_POST['imgURL'];
-		
+		$assignedby = $_POST['username'];
+
 		// if(!isset($_POST['submit'])){
 		// 	echo 'Error: not through submit button';
 		// 	die();
@@ -20,7 +21,7 @@
 			echo "<div style='color:red'>Error: Unable to connect database</div>";
 		}
 
-		$query = "INSERT INTO customers (firstname,lastname,position,company,status,email,phone,activity,imgURL) VALUES ('$fn', '$ln','$position','$company', '$status','$email','$phone', '$activity', '$imgURL')";
+		$query = "INSERT INTO customers (firstname,lastname,position,company,status,email,phone,activity,imgURL,addby) VALUES ('$fn', '$ln','$position','$company', '$status','$email','$phone', '$activity', '$imgURL', '$assignedby')";
 
 		mysql_select_db('hbtagenc_gotcha_application');
 		$retval = mysql_query($query, $db_connect);

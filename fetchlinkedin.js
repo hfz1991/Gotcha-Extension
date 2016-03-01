@@ -6,13 +6,14 @@ function fetchLinkedIn(document_root){
     console.log("count:" + resultCount);
     var nameArray = [];
     var finalArray = [];
-    
+    var indexArray = [];
 
     //Get name
     for (var i = 0; i < resultCount; i++) {
         var name = document.querySelectorAll(".people .main-headline")[i].textContent;
         if(name != "LinkedIn Member"){
             nameArray.push(name);
+            indexArray.push(i);
         }
     };
     console.log("count:"+ nameArray.length + "content:"+ nameArray);
@@ -28,25 +29,30 @@ function fetchLinkedIn(document_root){
     // };
     // console.log("count:"+ actuallyCount + "content:"+ titleArray);
 
+    //Get image
     var imgArray = [];
     for (var i = 0; i < count; i++) {
-        var url = document.querySelectorAll(".people .result-image img")[i].getAttribute("src")
+        var targetIndex = indexArray[i];
+        var url = document.querySelectorAll(".people .result-image img")[targetIndex].getAttribute("src")
         imgArray.push(url);
     };
 
+    //Get Title
     var titleArray = [];
     for (var i = 0; i < count; i++) {
-        var title = document.querySelectorAll(".people .bd .description")[i].textContent;
+        var targetIndex = indexArray[i];
+        var title = document.querySelectorAll(".people .bd .description")[targetIndex].textContent;
 
         titleArray.push(title);
     };
     console.log("count:"+ count + "content:"+ titleArray);
 
-    var imgArray = [];
-    for (var i = 0; i < count; i++) {
-        var url = document.querySelectorAll(".people .result-image img")[i].getAttribute("src")
-        imgArray.push(url);
-    };
+    //Get connection
+    // var connectionArray = [];
+    // for (var i = 0; i < count; i++) {
+    //     var targetIndex = indexArray[i];
+    //     var title = document.querySelectorAll(".people .bd .related-wrapper")[targetIndex].textContent;
+    // }
 
 
     // Process the final string
@@ -55,7 +61,7 @@ function fetchLinkedIn(document_root){
     	var splitArray = titleArray[i].split(" at ");
     	var tempPosition = splitArray[0];
         if(!splitArray[1]){
-            console.log("Try seach name - company name...");
+            console.log("Try search name - company name...");
             splitArray = titleArray[i].split(" - ");
             if(!splitArray[1]){
                 splitArray = titleArray[i].split(" @ ");

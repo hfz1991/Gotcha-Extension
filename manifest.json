@@ -9,7 +9,7 @@
 	"icons": { "128": "hbt.png" },
 	"browser_action": {
 		"default_icon": "hbt2.png",
-		"default_popup": "popup.html"
+		"default_popup": "auth.html"
 	},
 	"permissions": [
 		"tabs", "http://*/*", "https://*/*" , "bookmarks", "<all_urls>"
